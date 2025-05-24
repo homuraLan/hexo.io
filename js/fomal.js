@@ -2046,7 +2046,7 @@ function toChinaDay(d) { // 日 => \u65e5
 
 /**
 
-* 年份转生肖[!仅能大致转换] => 精确划分生肖分界线是“立春”
+* 年份转生肖[!仅能大致转换] => 精确划分生肖分界线是"立春"
 
 * @param y year
 
@@ -2956,16 +2956,27 @@ if (localStorage.getItem("themeColor") == undefined) {
 }
 setColor(localStorage.getItem("themeColor"));
 function setColor(c) {
-  document.getElementById("themeColor").innerText = `:root{--theme-color:` + map.get(c) + ` !important}`;
+  const themeColorEl = document.getElementById("themeColor");
+  if (!themeColorEl) {
+    console.warn('[Theme] Theme color element not found');
+    return;
+  }
+  themeColorEl.innerText = `:root{--theme-color:` + map.get(c) + ` !important}`;
   localStorage.setItem("themeColor", c);
+  
   // 刷新鼠标颜色
-  CURSOR.refresh();
-  // 设置一个带有透明度的主题色，用于菜单栏的悬浮颜色
+  if (typeof CURSOR !== 'undefined' && CURSOR) {
+    CURSOR.refresh();
+  }
+  
+  // 设置带透明度的主题色
   var theme_color = map.get(c);
-  var trans_theme_color = "rgba" + theme_color.substring(3, theme_color.length - 1) + ", 0.7)";
-  var high_trans_color = "rgba" + theme_color.substring(3, theme_color.length - 1) + ", 0.5)";
-  document.documentElement.style.setProperty("--text-bg-hover", trans_theme_color);
-  document.documentElement.style.setProperty("--high-trans-color", high_trans_color);
+  if (theme_color) {
+    var trans_theme_color = "rgba" + theme_color.substring(3, theme_color.length - 1) + ", 0.7)";
+    var high_trans_color = "rgba" + theme_color.substring(3, theme_color.length - 1) + ", 0.5)";
+    document.documentElement.style.setProperty("--text-bg-hover", trans_theme_color);
+    document.documentElement.style.setProperty("--high-trans-color", high_trans_color);
+  }
 }
 
 
