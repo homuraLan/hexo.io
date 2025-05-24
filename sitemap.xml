@@ -146,7 +146,7 @@
   </url>
   
   <url>
-    <loc>https://homura.top/life/music/index.html</loc>
+    <loc>https://homura.top/life/movies/index.html</loc>
     
     <lastmod>2023-11-02</lastmod>
     
@@ -155,7 +155,7 @@
   </url>
   
   <url>
-    <loc>https://homura.top/life/movies/index.html</loc>
+    <loc>https://homura.top/life/music/index.html</loc>
     
     <lastmod>2023-11-02</lastmod>
     
@@ -421,6 +421,27 @@
   </url>
   
   <url>
+    <loc>https://homura.top/tags/%E5%BC%80%E6%BA%90/</loc>
+    <lastmod>2025-05-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://homura.top/tags/docker/</loc>
+    <lastmod>2025-05-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://homura.top/tags/liunx/</loc>
+    <lastmod>2025-05-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://homura.top/tags/python/</loc>
     <lastmod>2025-05-24</lastmod>
     <changefreq>weekly</changefreq>
@@ -443,27 +464,6 @@
   
   <url>
     <loc>https://homura.top/tags/windows/</loc>
-    <lastmod>2025-05-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://homura.top/tags/%E5%BC%80%E6%BA%90/</loc>
-    <lastmod>2025-05-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://homura.top/tags/docker/</loc>
-    <lastmod>2025-05-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://homura.top/tags/liunx/</loc>
     <lastmod>2025-05-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
