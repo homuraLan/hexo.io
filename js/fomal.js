@@ -3562,3 +3562,68 @@ function toggleWinbox() {
 }
 
 /* 美化模块 end */
+
+// FPS检测
+function loop() {
+  const fpsElement = document.getElementById("fps");
+  if (!fpsElement) {
+    console.warn('[FPS] FPS element not found');
+    return;
+  }
+  
+  frame++;
+  const now = performance.now();
+  if (now - lastTime > 1000) {
+    var fps = Math.round((frame * 1000) / (now - lastTime));
+    var kd = getFPSStatus(fps);
+    fpsElement.innerHTML = `FPS:${fps} ${kd}`;
+    frame = 0;
+    lastTime = now;
+  }
+  requestAnimationFrame(loop);
+}
+
+function getFPSStatus(fps) {
+  if (fps <= 5) return '<span style="color:#bd0000">卡成ppt🤢</span>';
+  if (fps <= 15) return '<span style="color:red">电竞级帧率😖</span>';
+  if (fps <= 25) return '<span style="color:orange">有点难受😨</span>';
+  if (fps < 35) return '<span style="color:#9338e6">不太流畅🙄</span>';
+  if (fps <= 45) return '<span style="color:#08b7e4">还不错哦😁</span>';
+  return '<span style="color:#39c5bb">十分流畅🤣</span>';
+}
+
+// 侧边栏开关
+function toggleRightside() {
+  const rightSideElement = document.getElementById("rightSide");
+  if (!rightSideElement) {
+    console.warn('[RightSide] RightSide element not found');
+    return;
+  }
+  
+  const rightSideSet = document.getElementById("rightSideSet");
+  if (!rightSideSet) {
+    console.warn('[RightSide] RightSideSet element not found');
+    return;
+  }
+
+  const display = rightSideSet.checked ? "block" : "none";
+  localStorage.setItem("rs", display);
+  rightSideElement.innerText = `:root{--rightside-display: ${display}}`;
+}
+
+// 初始化侧边栏状态
+function initRightSide() {
+  const rightSideElement = document.getElementById("rightSide");
+  if (!rightSideElement) {
+    console.warn('[RightSide] RightSide element not found');
+    return;
+  }
+
+  const display = localStorage.getItem("rs") || "block";
+  rightSideElement.innerText = `:root{--rightside-display: ${display}}`;
+}
+
+// 在DOMContentLoaded时初始化
+document.addEventListener('DOMContentLoaded', function() {
+  initRightSide();
+});
